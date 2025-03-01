@@ -1,0 +1,31 @@
+<div{{ attributes }}>
+    <form data-model="norender|*"
+            data-action="live#action:prevent"
+            data-live-action-param="create"
+    >
+        <label>
+            <span>Task</span>
+            <input type="text" name="task" value="{{ task }}">
+        </label>
+
+        <label>
+            <span>Relevance</span>
+            <input  name="relevance" value="{{ relevance }}">
+        </label>
+
+        <button>Create</button>
+    </form>
+
+    {% for item in taskList %}
+        <p>
+            {{ item.name }} 
+            - 
+            relevance: {{ item.relevance }}
+        </p>
+    {% else %}
+        <p>
+            No tasks
+        </p>
+    {% endfor %}
+
+</div>

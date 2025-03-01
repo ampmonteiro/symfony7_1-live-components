@@ -1,0 +1,50 @@
+<div{{ attributes }}>
+    <form data-model="on(change)|*"
+            data-action="live#action:prevent"
+            data-live-action-param="create"
+    >
+        <label>
+            <span>Task</span>
+            <input type="text" name="task" value="{{ task }}"
+                style="display:flex; flex-direction:column; width:10%;"
+            >
+            <twig:FieldError 
+                :result="_errors" 
+                field="task" 
+            />
+        </label>
+
+        <label style="display:flex; flex-direction:column; width:5%;">
+            <span>Relevance</span>
+            <input  name="relevance" value="{{ relevance }}">
+            <twig:FieldError 
+                :result="_errors" 
+                field="relevance" 
+            />
+        </label>
+
+        <button 
+            {{ 
+                this.validatedFields|length == 2 and 
+                not _errors.has('relevance') and
+                not _errors.has('task')
+                ? ''  : 'disabled'
+            }}
+        >
+            Create
+        </button>
+    </form>
+
+    {% for item in taskList %}
+        <p>
+            {{ item.name }} 
+            - 
+            relevance: {{ item.relevance }}
+        </p>
+    {% else %}
+        <p>
+            No tasks
+        </p>
+    {% endfor %}
+
+</div>

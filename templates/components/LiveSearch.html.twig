@@ -1,0 +1,17 @@
+<article {{ attributes }}>
+    <search>
+        <input type="search" data-model="debounce(700)|query">
+        <button {{ live_action('clear') }}>
+            Clear
+        </button>
+    </search>
+
+    <ul>
+        {% for item in this.frameworks %}
+            <li> {{ item }} </li>
+
+        {% else %}
+            <li>Not found</li>
+        {% endfor %}
+    </ul>
+</article>

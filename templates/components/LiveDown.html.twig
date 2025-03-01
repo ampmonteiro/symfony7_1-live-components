@@ -1,0 +1,23 @@
+<article{{ attributes }}>
+    <section>
+        <p>MD:</p>    
+
+        <textarea 
+            rows="20" 
+            cols="80"  
+            data-model="debounce(500)|md"></textarea>
+    </section>
+
+    <section>
+        <p>
+            Result
+        
+            <button {{ live_action('clear') }}>
+                Clear
+            </button>
+        </p>
+        <p>
+            {{ md|markdown_to_html }}
+        </p>
+    </section>
+</article>
