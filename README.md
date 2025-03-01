@@ -43,6 +43,8 @@ Examples in this project:
 
 - Validation form
 
+### image:
+![Symfony Live components examples](image.png)
 
 ## install as micro framework
 
